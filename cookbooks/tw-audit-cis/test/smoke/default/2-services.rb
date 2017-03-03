@@ -252,3 +252,5 @@ end
 describe service('crond') do
   it {should_not be_running }
 end
+
+# TODO: to continue developing more tests

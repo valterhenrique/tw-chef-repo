@@ -41,21 +41,6 @@ describe file('/etc/rsyslog.d/50-default.conf') do
   its('content'){ should match(/\/var\/log\/user.log$/) }
 end
 
-# describe file('/etc/rsyslog.conf')  match(/\*\.\* @/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/auth.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/cron.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/daemon.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/debug/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/kern.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/lpr.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/mail.err/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/mail.info/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/mail.log/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/mail.warn/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/messages/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/syslog/)
-# describe file('/etc/logrotate.d/rsyslog')  match(/\/var\/log\/user.log/)
-
 describe file('/etc/audit/auditd.conf') do
   its('content'){ should match(/max_log_file = 30$/)}
   its('content'){ should match(/space_left_action = email$/)}
@@ -122,4 +107,4 @@ describe file('/etc/cron.allow') do
   its('mode'){ should cmp '0600'}
 end
 
-# describe file('/etc/pam.d/su').content) match(/auth\s+required\s+pam_wheel.so\s+use_uid/)
+# TODO: to continue developing more tests
