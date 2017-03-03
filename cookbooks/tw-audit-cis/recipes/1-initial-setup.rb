@@ -6,11 +6,6 @@
 
 # 1.1 Filesystem Configuration
 # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Scored)
-
-template '/etc/modprobe.d/CIS.conf' do
-  source 'CIS.conf.erb'
-end
-
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
@@ -18,21 +13,52 @@ end
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 # 1.1.1.8 Ensure mounting of FAT filesystems is disabled (Scored)
+
+template '/etc/modprobe.d/CIS.conf' do
+  source 'CIS.conf.erb'
+end
+
+
 # 1.1.2 Ensure separate partition exists for /tmp (Scored)
+
 # 1.1.3 Ensure nodev option set on /tmp partition (Scored)
+
+# mount -o remount,nodev /tmp
+
 # 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
+
+# mount -o remount,nosuid /tmp
+
 # 1.1.5 Ensure separate partition exists for /var (Scored)
 # 1.1.6 Ensure separate partition exists for /var/tmp (Scored)
 # 1.1.7 Ensure nodev option set on /var/tmp partition (Scored)
+
+# mount -o remount,nodev /var/tmp
+
 # 1.1.8 Ensure nosuid option set on /var/tmp partition (Scored)
+
+# mount -o remount,nosuid /var/tmp
+
 # 1.1.9 Ensure noexec option set on /var/tmp partition (Scored)
+
+# mount -o remount,noexec /var/tmp
+
 # 1.1.10 Ensure separate partition exists for /var/log (Scored)
 # 1.1.11 Ensure separate partition exists for /var/log/audit (Scored)
 # 1.1.12 Ensure separate partition exists for /home (Scored)
 # 1.1.13 Ensure nodev option set on /home partition (Scored)
 # 1.1.14 Ensure nodev option set on /dev/shm partition (Scored)
+
+# mount -o remount,nodev /dev/shm
+
 # 1.1.15 Ensure nosuid option set on /dev/shm partition (Scored)
+
+# mount -o remount,nosuid /dev/shm
+
 # 1.1.16 Ensure noexec option set on /dev/shm partition (Scored)
+
+# mount -o remount,noexec /dev/shm
+
 # 1.1.17 Ensure nodev option set on removable media partitions (Not Scored)
 # 1.1.18 Ensure nosuid option set on removable media partitions (Not Scored)
 # 1.1.19 Ensure noexec option set on removable media partitions (Not Scored)
