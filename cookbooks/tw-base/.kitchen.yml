@@ -4,22 +4,23 @@ driver:
 
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
+  roles_path: ../../roles
+  # nodes_path: test/fixtures/nodes
+  # clients_path: test/fixtures/clients
+  # environments_path: test/fixtures/environments
+  # data_bags_path: test/fixtures/data_bags
 
 verifier:
   name: inspec
 
 platforms:
   - name: ubuntu-16.04
-  - name: centos-7.2
 
 suites:
   - name: default
     run_list:
-      - recipe[tw-base::default]
+      - role[base]
     verifier:
       inspec_tests:
         - test/smoke/default
