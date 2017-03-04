@@ -1,4 +1,3 @@
 # tw-mvp
 
-TODO: Enter the cookbook description here.
-
+Installs/configure the MVP using the cookbook `tw-mvp`.
