@@ -18,3 +18,7 @@ describe command('/usr/bin/javac -version') do
   its('exit_status'){ should eq 0 }
   skip "Ensure that javac is installed"
 end
+
+describe file('/bin/lein') do
+  it { should exist}
+end
