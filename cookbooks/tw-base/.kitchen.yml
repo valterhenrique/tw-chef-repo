@@ -4,12 +4,12 @@ driver:
 
 provisioner:
   name: chef_zero
-  always_update_cookbooks: true
+  always_update_cookbooks: false
   roles_path: ../../roles
+  data_bags_path: ../../data_bags
   # nodes_path: test/fixtures/nodes
   # clients_path: test/fixtures/clients
   # environments_path: test/fixtures/environments
-  # data_bags_path: test/fixtures/data_bags
 
 verifier:
   name: inspec
@@ -25,3 +25,8 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+      authorization:
+        sudo:
+          users: ['kitchen', 'vagrant']
+          passwordless: true
+          include_sudoers_d: true
