@@ -6,7 +6,7 @@ description 'Installs/Configures tw-mvp'
 long_description 'Installs/Configures tw-mvp'
 version '0.1.0'
 
-depends 'java_se', '~> 8.121'
+depends 'java', '~> 1.26'
 depends 'lein', '~>1.0'
 
 # The `issues_url` points to the location where issues for this cookbook are

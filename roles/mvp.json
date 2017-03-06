@@ -3,6 +3,22 @@
   "description": "",
   "json_class": "Chef::Role",
   "default_attributes": {
+    "tw-base":{
+      "ports":{
+        "allow": [ "22", "8000", "8001", "8002" ]
+      }
+    },
+    "java":{
+      "install_flavor":"oracle",
+      "jdk_version": "8",
+      "oracle":{
+        "accept_oracle_download_terms":true
+      }
+    },
+    "poise-python":{
+      "install_python3":true,
+      "install_pypy":true
+    }
   },
   "override_attributes": {
 
@@ -10,7 +26,8 @@
   "chef_type": "role",
   "run_list": [
     "role[base]",
-    "recipe[java_se]",
+    "recipe[java]",
+    "recipe[poise-python]",
     "recipe[tw-mvp]"
   ],
   "env_run_lists": {

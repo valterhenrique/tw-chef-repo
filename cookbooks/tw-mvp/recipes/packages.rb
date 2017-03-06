@@ -20,3 +20,41 @@ execute 'leiningen' do
   command '/bin/lein'
   action :nothing
 end
+
+group 'mvp'
+user 'mvp' do
+  comment 'MVP application user'
+  group 'mvp'
+  system true
+  shell '/bin/false'
+  home '/opt/mvp'
+  manage_home true
+end
+
+directory node['mvp']['home'] do
+  owner 'mvp'
+  group 'mvp'
+  mode '2755'
+end
+
+git node['mvp']['home'] do
+  repository node['mvp']['repository']
+  revision 'master'
+  user 'mvp'
+  group 'mvp'
+  action :sync
+  notifies :run, 'execute[build]'
+end
+
+# builds only if necessary/changes
+execute 'build' do
+  user "mvp"
+  command 'make clean all'
+  cwd node['mvp']['home']
+  action :nothing
+end
+
+firewall_rule 'open port 8000' do
+  port 8000
+  command :allow
+end
