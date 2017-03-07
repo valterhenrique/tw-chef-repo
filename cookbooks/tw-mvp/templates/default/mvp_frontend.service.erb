@@ -1,0 +1,14 @@
+[Unit]
+Description=Java Service of MVP Front-End
+
+[Service]
+User=mvp
+EnvironmentFile=/etc/mvp_frontend
+WorkingDirectory=/srv/mvp/build
+ExecStart=/usr/bin/java -jar front-end.jar
+ExecStop=/bin/kill -TERM $MAINPID
+TimeoutSec=300
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
