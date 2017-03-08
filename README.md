@@ -1,8 +1,61 @@
 # Overview
 
-Every Chef installation needs a Chef Repository. This is the place where cookbooks, roles, config files and other artifacts for managing systems with Chef will live. We strongly recommend storing this repository in a version control system such as Git and treat it like source code.
+## CHEF DK
 
-While we prefer Git, and make this repository available via GitHub, you are welcome to download a tar or zip archive and use your favorite version control system to manage the code.
+Install/Configure [Chef DK](https://docs.chef.io/install_dk.html).
+I've also developed this [script](https://gist.github.com/valterhenrique/b0d2039ca58bf5bcc81ac25b74fb52cb) on Ubuntu to ease this step.
+
+## AWS
+
+* Create an account on AWS
+* Create an user with programmatic access
+* Give to her/him access to EC2 services.
+* Download the generated credentials
+
+It should look like this:
+
+    User name,Password,Access key ID,Secret access key,Console login link
+    username,,AAA,BBB,https://AWS_ACCOUNT_ID.signin.aws.amazon.com/console
+
+### Install AWS CLI.
+
+On Ubuntu:
+
+* Install it using pip:
+
+    sudo pip install awscli
+
+* Or, install it using apt-get:
+
+    sudo apt-get install -y awscli
+
+You can test it by typing:
+
+    aws --version
+
+The output should be similar to:
+
+    aws-cli/1.11.58 Python/2.7.12 Linux/4.4.0-65-generic botocore/1.5.21
+
+### Configure AWS CLI
+
+    $ aws configure
+    AWS Access Key ID [None]: AAA
+    AWS Secret Access Key [None]: BBB
+    Default region name [None]: eu-central-1
+    Default output format [None]: json
+
+### Create a key pair
+
+Go to EC2 Dashboard, on the left side bar, look for 'NETWORK & SECURITY', then 'Key Pairs'.
+Create a key pair, and save it at '~/.ssh/aws-vasi.pem'
+
+(I've tried generating this key pair using `Kitchen EC2` but it [didn't work for me](https://github.com/test-kitchen/kitchen-docker/issues/202).)
+
+## Kitchen EC2
+
+Install/Configure [kitchen ec2 plugin](https://github.com/test-kitchen/kitchen-ec2#initial-setup)
+
 
 # Repository Directories
 
