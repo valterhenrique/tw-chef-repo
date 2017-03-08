@@ -3,11 +3,10 @@
 Installs/configure the MVP using the cookbook `tw-mvp`.
 
 
-View logs:
 
-    sudo journalctl -u mvp_frontend
-    sudo journalctl -u mvp_quote
-    sudo journalctl -u mvp_newsfeed
+## Vagrant
+
+If you want to test using Vagrant:
 
 .kitchen.yml using Vagrant and Chef-Zero:
 
@@ -25,6 +24,7 @@ View logs:
         always_update_cookbooks: false
         roles_path: ../../roles
         data_bags_path: ../../data_bags
+        encrypted_data_bag_secret_key_path: "../../secret_key"
 
       verifier:
         name: inspec

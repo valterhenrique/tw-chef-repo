@@ -18,6 +18,7 @@ provisioner:
   name: chef_zero
   roles_path: ../../roles
   data_bags_path: ../../data_bags
+  encrypted_data_bag_secret_key_path: "../../secret_key"
 
 platforms:
   - name: ubuntu-16.04

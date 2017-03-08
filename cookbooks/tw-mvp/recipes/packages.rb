@@ -57,10 +57,14 @@ firewall_rule 'open port 8000' do
   command :allow
 end
 
+mvp = data_bag_item('mvp', 'secret')
 template '/etc/mvp_frontend_env' do
   owner 'root'
   group 'root'
   mode '0644'
+  variables({
+    token: mvp['token']
+  })
   source 'mvp_frontend_env.erb'
 end
 

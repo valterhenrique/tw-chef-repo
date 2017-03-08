@@ -61,6 +61,38 @@ In my example, I've created two security groups for this purpose, their IDs are:
 
 Install/Configure [kitchen ec2 plugin](https://github.com/test-kitchen/kitchen-ec2#initial-setup)
 
+## Run
+
+After ChefDK, AWS and Kitchen EC2 are configured, type:
+
+    cd cookbooks/tw-mvp/
+    kitchen converge
+
+This will create a new ec2 instance on AWS EC2 service, bootstrap it using `run_list`
+
+After that, you can access the machine by typing:
+
+    kitchen login
+
+You can do `curl` commands in order to test if the application is running:
+
+    curl http://localhost:8001
+
+To view the logs:
+
+    sudo journalctl -u mvp_frontend
+    sudo journalctl -u mvp_quote
+    sudo journalctl -u mvp_newsfeed
+
+
+You can access our application remotely by accessing `http://<ec2-public-ip-or-public-dns>:8001/`
+
+    http://35.157.178.25:8001
+    http://ec2-35-157-178-25.eu-central-1.compute.amazonaws.com:8001
+
+
+You can also reboot the server, that our MVP application will start automatically.
+
 ## Repository Directories
 
 This repository contains several directories, and each directory contains a README file that describes what it is for in greater detail, and how to use it for managing your systems with Chef.
@@ -69,12 +101,6 @@ This repository contains several directories, and each directory contains a READ
 - `data_bags/` - Store data bags and items in .json in the repository.
 - `roles/` - Store roles in .rb or .json in the repository.
 - `environments/` - Store environments in .rb or .json in the repository.
-
-# Configuration
-
-The config file, `.chef/knife.rb` is a repository specific configuration file for knife. If you're using the Chef Platform, you can download one for your organization from the management console. If you're using the Open Source Chef Server, you can generate a new one with `knife configure`. For more information about configuring Knife, see the Knife documentation.
-
-<https://docs.chef.io/knife.html>
 
 # Next Steps
 
