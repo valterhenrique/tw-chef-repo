@@ -57,24 +57,18 @@ firewall_rule 'open port 8000' do
   command :allow
 end
 
-template '/etc/mvp_frontend' do
+template '/etc/mvp_frontend_env' do
   owner 'root'
   group 'root'
-  mode '0600'
+  mode '0644'
   source 'mvp_frontend_env.erb'
-end
-
-directory '/etc/systemd/system/mvp.service.d' do
-  owner 'root'
-  group 'root'
-  mode '0755'
 end
 
 %w(mvp_frontend mvp_quote mvp_newsfeed).each do |srvc|
   template "/etc/systemd/system/#{srvc}.service" do
     owner 'root'
     group 'root'
-    mode '0755'
+    mode '0644'
     source "#{srvc}.service.erb"
   end
 

@@ -4,7 +4,7 @@ driver:
   aws_ssh_key_id: aws-vasi
   region: eu-central-1
   instance_type: t2.micro
-  security_group_ids: ["sg-50ff3f3b"]
+  security_group_ids: ["sg-50ff3f3b", "sg-61a6650a"]
   associate_public_ip: true
   interface: dns
 
@@ -20,12 +20,11 @@ provisioner:
   data_bags_path: ../../data_bags
 
 platforms:
-  - name: ubuntu-14.04
+  - name: ubuntu-16.04
 
 suites:
   - name: default
     run_list:
-      - role[base]
       - role[mvp]
     verifier:
       inspec_tests:

@@ -4,8 +4,7 @@ Description=Java Service of MVP Quote
 [Service]
 User=mvp
 Environment=APP_PORT=<%= node['tw-mvp']['quote_service_port'] %>
-WorkingDirectory=/srv/mvp/build
-ExecStart=/usr/bin/java -jar quotes.jar
+ExecStart=/usr/bin/java -jar /srv/mvp/build/quotes.jar
 ExecStop=/bin/kill -TERM $MAINPID
 TimeoutSec=300
 SuccessExitStatus=143

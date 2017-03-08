@@ -4,8 +4,7 @@ Description=Java Service of MVP Quote
 [Service]
 User=mvp
 Environment=APP_PORT=<%= node['tw-mvp']['newsfeed_service_port'] %>
-WorkingDirectory=/srv/mvp/build
-ExecStart=/usr/bin/java -jar newsfeed.jar
+ExecStart=/usr/bin/java -jar /srv/mvp/build/newsfeed.jar
 ExecStop=/bin/kill -TERM $MAINPID
 TimeoutSec=300
 SuccessExitStatus=143

@@ -52,6 +52,11 @@ Create a key pair, and save it at '~/.ssh/aws-vasi.pem'
 
 (I've tried generating this key pair using `Kitchen EC2` but it [didn't work for me](https://github.com/test-kitchen/kitchen-docker/issues/202).)
 
+## Configure Security Groups
+
+Create a security groups that allows ports: 22, 8000, 8001, 8002.
+In my example, I've created two security groups for this purpose, their IDs are: sg-50ff3f3b, sg-61a6650a.
+
 ## Kitchen EC2
 
 Install/Configure [kitchen ec2 plugin](https://github.com/test-kitchen/kitchen-ec2#initial-setup)
