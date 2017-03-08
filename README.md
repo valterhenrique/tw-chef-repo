@@ -21,11 +21,11 @@ It should look like this:
 
 On Ubuntu:
 
-* Install it using pip:
+Install it using pip:
 
-    sudo pip install awscli
+    sudo pip install awscli  
 
-* Or, install it using apt-get:
+Or, install it using apt-get:
 
     sudo apt-get install -y awscli
 
@@ -47,22 +47,21 @@ The output should be similar to:
 
 ### Create a key pair
 
-Go to EC2 Dashboard, on the left side bar, look for 'NETWORK & SECURITY', then 'Key Pairs'.
-Create a key pair, and save it at '~/.ssh/aws-vasi.pem'
+Go to EC2 Dashboard, on the left side bar, look for `NETWORK & SECURITY`, then `Key Pairs`.
+Create a key pair, and save it at `~/.ssh/aws-vasi.pem` (`TODO`: Make an environment variable ?)
 
-(I've tried generating this key pair using `Kitchen EC2` but it [didn't work for me](https://github.com/test-kitchen/kitchen-docker/issues/202).)
+(I've tried generating this key pair using `kitchen EC2` but it [didn't work for me](https://github.com/test-kitchen/kitchen-docker/issues/202)
 
 ## Configure Security Groups
 
-Create a security groups that allows ports: 22, 8000, 8001, 8002.
-In my example, I've created two security groups for this purpose, their IDs are: sg-50ff3f3b, sg-61a6650a.
+Create a security groups that allows ports: `22`, `8000`, `8001`, `8002`.
+In my example, I've created two security groups for this purpose, their IDs are: `sg-50ff3f3b`, `sg-61a6650a`.
 
 ## Kitchen EC2
 
 Install/Configure [kitchen ec2 plugin](https://github.com/test-kitchen/kitchen-ec2#initial-setup)
 
-
-# Repository Directories
+## Repository Directories
 
 This repository contains several directories, and each directory contains a README file that describes what it is for in greater detail, and how to use it for managing your systems with Chef.
 
