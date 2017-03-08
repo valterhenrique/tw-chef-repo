@@ -15,7 +15,9 @@ transport:
   username: ubuntu
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
+  roles_path: ../../roles
+  data_bags_path: ../../data_bags
 
 platforms:
   - name: ubuntu-14.04
@@ -23,4 +25,14 @@ platforms:
 suites:
   - name: default
     run_list:
+      - role[base]
+      - role[mvp]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
     attributes:
+      authorization:
+        sudo:
+          users: ['kitchen', 'vagrant']
+          passwordless: true
+          include_sudoers_d: true
