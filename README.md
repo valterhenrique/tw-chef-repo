@@ -1,5 +1,7 @@
 # Overview
 
+Deploy a MVP to the cloud using Infrastructure as Code.
+
 ## CHEF DK
 
 Install/Configure [Chef DK](https://docs.chef.io/install_dk.html).
@@ -102,6 +104,34 @@ This repository contains several directories, and each directory contains a READ
 - `roles/` - Store roles in .rb or .json in the repository.
 - `environments/` - Store environments in .rb or .json in the repository.
 
-# Next Steps
+## Next Steps
 
 Read the README file in each of the subdirectories for more information about what goes in those directories.
+
+## Future Work
+
+### Extend
+
+Develop future cookbooks/recipes using the base recipe, `tw-base`, to ensure that all systems have a minimal common setup, regarding packages, security, users, etc.
+
+### Security
+
+Ensure that our systems are secure and compliant using a tool like [Chef Compliance](https://www.chef.io/solutions/compliance/) for example. Continue to evolve our tests regarding [inspec](inspec.io), making sure that our system are secure and stable.
+
+### Continuous Delivery
+
+Create a box/template/ami in order to speed deployments. Create/deploy using containers, perhaps our application requirements can be deployed faster.
+
+### Monitoring
+
+After a server have been deployed to production, it should be added automatically into a monitoring system, like [Amazon CloudWatch](https://aws.amazon.com/cloudwatch) or many others like Nagios(https://nagios.com), or Zabbix (http://www.zabbix.com/), etc.
+
+### Team
+
+In order to engage the team, I would identify the most painful problem that they have at the moment. Present to them some tools and practices explaining how we could solve the problem. We might need to study the tools in depth in order to make a more accurate decision regarding which tool will work better for us, and for a certain project/customer, on the short/long term.
+
+## License and Maintainer
+
+Maintainer:: Valter Henrique (valterhenrique85@gmail.com)
+
+License:: All rights reserved

@@ -2,8 +2,6 @@
 
 Installs/configure the MVP using the cookbook `tw-mvp`.
 
-
-
 ## Vagrant
 
 If you want to test using Vagrant:
